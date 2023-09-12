@@ -40,9 +40,26 @@ The target variable, `loan_status`, indicates the risk of the loan:
    - Model's performance was evaluated again to see improvements from handling the imbalanced data.
 
 ## Results
-- The logistic regression model trained on the original data achieved an accuracy of 95.20%.
-- After oversampling, the balanced accuracy score improved to 99.37%.
-- The confusion matrix and classification report further confirmed the improved performance of the model trained with oversampled data.
+The logistic regression model trained on the original data achieved an accuracy of 95.20%. However, after oversampling, the balanced accuracy score improved to 99.37%.
+The precision score and recall attached below further confirmed the improved performance of the model trained with oversampled data.
+
+### Logistic Regression on Original Data:
+- Balanced accuracy score: `0.9520 (95.20%)`
+- Precision score for healthy loans: `1.00`
+- Recall for healthy loans: `0.99`
+- Precision score for high-risk loan: `0.85`
+- Recall for high-risk loans: `0.91`
+
+
+### Logistic Regression on Resampled Data:
+- Balanced accuracy score: `0.9937 (99.37%)`
+- Precision score for healthy loans: `1.00`
+- Recall for healthy loans: `0.99`
+- Precision score for high-risk loan: `0.84`
+- Recall for high-risk loans: `0.99`
+
 
 ## Conclusion and Recommendations
-The logistic regression model trained with oversampled data performed exceptionally well in predicting both healthy and high-risk loans. While the model excellently flags most of the high-risk loans, it tends to flag some healthy loans as high-risk. This can be an acceptable trade-off for lending companies to reduce potential defaults. It's recommended to consider this model for deployment with periodic retraining on new data.
+The logistic regression model trained with oversampled data performed exceptionally well in predicting both healthy and high-risk loans. While the model excellently flags most of the high-risk loans, it tends to flag some healthy loans as high-risk more than the model with the original data. This may be an acceptable trade-off for lending companies to reduce potential defaults. However, the cost implications of false positives and fale negatives should be considered in selecting a model.  
+
+It's recommended to consider logistic regression model trained with oversampled data if minimizing high-risks loans is the priority. It is also recommended to consider this model for deployment with periodic retraining on new data.
